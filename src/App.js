@@ -1,21 +1,22 @@
 import './App.css';
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Route,
 } from "react-router-dom";
 import routes from './routes/routeLists';
-import WrapperRoutes from './routes/WrapperRoutes';
 
 function App() {
+  console.log(routes);
+  const routeComponents = routes.map(({ path, component }, key) =>
+    <Route exact path={path} component={component} key={ key}></Route>
+
+  );
   return (
-    < Router >
-    < Switch >
-    {
-      routes.map((route, i) => (
-        <WrapperRoutes key={i} {...route}/>))}
-    </Switch>
-    </Router>
+    <BrowserRouter>
+      {routeComponents}
+      <div/>
+    </BrowserRouter>
   );  
 };
 

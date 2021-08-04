@@ -6,7 +6,7 @@ import LoginPage from '../Login/Login';
 
 const routes = [
     {
-        path: "/home",
+        path: "/",
         component: LoginPage
     },
     
